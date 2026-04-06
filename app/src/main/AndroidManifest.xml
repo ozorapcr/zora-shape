@@ -12,6 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Zorashape">
         <activity
+            android:name=".pertemuan3.WelcomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pertemuan3.LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".BalokActivity"
             android:exported="false" />
         <activity
@@ -20,11 +32,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

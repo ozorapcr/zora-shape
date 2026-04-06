@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_main">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Log In"
+        android:textColor="@color/peach_primary"
+        android:textSize="28sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/logo_home"
+        android:scaleType="fitCenter"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tvWelcome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:text="Welcome"
+        android:textColor="@color/text_dark"
+        android:fontFamily="@font/leaguespartan_bold"
+        android:textSize="28sp"
+        app:layout_constraintTop_toBottomOf="@id/imgLogo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tvDesc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:text="Please enter your details to proceed."
+        android:textColor="@color/text_soft"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/tvWelcome"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tvUsernameLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:text="Username Or Email"
+        android:textColor="@color/text_dark"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/tvDesc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/inputNoTujuan"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:hint="example@example.com"
+        android:inputType="textEmailAddress"
+        android:padding="14dp"
+        android:textColor="@color/text_dark"
+        android:textColorHint="@color/text_soft"
+        app:layout_constraintTop_toBottomOf="@id/tvUsernameLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tvPasswordLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:text="Password"
+        android:textColor="@color/text_dark"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/inputNoTujuan"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/inputPassword"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:hint="Enter your password"
+        android:inputType="textPassword"
+        android:padding="14dp"
+        android:textColor="@color/text_dark"
+        android:textColorHint="@color/text_soft"
+        app:layout_constraintTop_toBottomOf="@id/tvPasswordLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btnKirim"
+        android:layout_width="200dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="@color/peach_primary"
+        android:text="Log In"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/inputPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tvForgot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="Forgot Password?"
+        android:textColor="@color/text_dark"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/btnKirim"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
