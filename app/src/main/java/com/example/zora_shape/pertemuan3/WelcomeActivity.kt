@@ -17,9 +17,9 @@ class WelcomeActivity : AppCompatActivity() {
         val username = intent.getStringExtra("USERNAME")
 
         binding.tvWelcomeUser.text = if (!username.isNullOrEmpty()) {
-            "Halo, $username!\nSelamat datang di aplikasi Home Decor."
+            "Halo, $username!"
         } else {
-            "Selamat datang di aplikasi Home Decor."
+            "Halo!"
         }
     }
 }

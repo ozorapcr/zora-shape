@@ -9,5 +9,6 @@
     <string name="password_hint">Enter your password</string>
     <string name="login_btn">Log In</string>
     <string name="forgot_password">Forgot Password?</string>
-    <string name="welcome_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</string>
+    <string name="welcome_user">Halo,</string>
+    <string name="welcome_text">Tipsy membantu kamu menemukan ide dekorasi rumah yang indah dan nyaman untuk menghadirkan suasana hunian yang lebih hidup dan menenangkan.</string>
 </resources>

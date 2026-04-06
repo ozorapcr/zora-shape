@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:hint="Alas"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintTop_margin="40dp"
+        android:layout_margin="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginHorizontal="24dp"/>
