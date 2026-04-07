@@ -26,6 +26,7 @@
         android:layout_marginTop="24dp"
         android:gravity="center"
         android:text="@string/welcome_user"
+        android:fontFamily="@font/leaguespartan_bold"
         android:textColor="@color/peach_primary"
         android:textSize="32sp"
         android:textStyle="bold"
@@ -38,15 +39,17 @@
         android:id="@+id/tvDesc"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
         android:layout_marginStart="40dp"
+        android:layout_marginTop="180dp"
         android:layout_marginEnd="40dp"
+        android:fontFamily="@font/leaguespartan_bold"
         android:gravity="center"
         android:text="@string/welcome_text"
         android:textColor="@color/text_dark"
         android:textSize="14sp"
-        app:layout_constraintTop_toBottomOf="@id/tvWelcomeUser"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/tvWelcomeUser" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
