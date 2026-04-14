@@ -5,4 +5,5 @@
     <color name="text_dark">#3F3A39</color>
     <color name="text_soft">#8A7F7B</color>
     <color name="white">#FFFFFF</color>
+    <color name="red">#FF0000</color>
 </resources>
