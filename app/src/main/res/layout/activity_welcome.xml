@@ -6,50 +6,99 @@
     android:layout_height="match_parent"
     android:background="@color/bg_main">
 
+    <!-- LOGO -->
     <ImageView
         android:id="@+id/imgLogoWelcome"
-        android:layout_width="220dp"
-        android:layout_height="220dp"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
         android:scaleType="fitCenter"
         android:src="@drawable/logo_home"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/tvWelcomeUser"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias="0.35" />
+        app:layout_constraintVertical_bias="0.3" />
 
     <!-- HALO USER -->
     <TextView
         android:id="@+id/tvWelcomeUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:gravity="center"
         android:text="@string/welcome_user"
         android:fontFamily="@font/leaguespartan_bold"
         android:textColor="@color/peach_primary"
-        android:textSize="32sp"
+        android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/imgLogoWelcome"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- LOREM IPSUM -->
+    <!-- DESKRIPSI -->
     <TextView
         android:id="@+id/tvDesc"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="180dp"
-        android:layout_marginEnd="40dp"
-        android:fontFamily="@font/leaguespartan_bold"
+        android:layout_margin="24dp"
         android:gravity="center"
         android:text="@string/welcome_text"
         android:textColor="@color/text_dark"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toBottomOf="@id/tvWelcomeUser"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvWelcomeUser" />
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- BUTTON RUMUS -->
+    <Button
+        android:id="@+id/btnRumus"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Rumus Bangun Ruang"
+        android:backgroundTint="@color/peach_primary"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/tvDesc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="16dp"/>
+
+    <!-- BUTTON CUSTOM 1 -->
+    <Button
+        android:id="@+id/btnCustom1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Custom 1"
+        app:layout_constraintTop_toBottomOf="@id/btnRumus"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="12dp"/>
+
+    <!-- BUTTON CUSTOM 2 -->
+    <Button
+        android:id="@+id/btnCustom2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Custom 2"
+        app:layout_constraintTop_toBottomOf="@id/btnCustom1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="12dp"/>
+
+    <!-- BUTTON LOGOUT -->
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:backgroundTint="@color/red"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/btnCustom2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="16dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

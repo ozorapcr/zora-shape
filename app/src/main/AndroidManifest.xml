@@ -12,6 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Zorashape">
         <activity
+            android:name="pertemuan4.Custom2Activity"
+            android:exported="false" />
+        <activity
+            android:name="pertemuan4.Custom1Activity"
+            android:exported="false" />
+        <activity
+            android:name="pertemuan4.FourthActivity"
+            android:exported="false" />
+        <activity
+            android:name="pertemuan4.MainActivity"
+            android:exported="false" />
+        <activity
             android:name=".pertemuan3.WelcomeActivity"
             android:exported="false" />
         <activity
@@ -31,9 +43,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false" />
     </application>
 
 </manifest>
