@@ -1,3 +1,17 @@
+package com.example.zora_shape.pertemuan3
+
+import android.content.Intent
+import android.os.Bundle
+import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+import com.example.zora_shape.databinding.ActivityWelcomeBinding
+import com.example.zora_shape.pertemuan4.Custom1Activity
+import com.example.zora_shape.pertemuan4.Custom2Activity
+import com.example.zora_shape.pertemuan4.FourthActivity
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
+import kotlin.jvm.java
+
 class WelcomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityWelcomeBinding
