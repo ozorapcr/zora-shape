@@ -33,22 +33,14 @@ class WelcomeActivity : AppCompatActivity() {
         }
         binding.tvWelcomeUser.text = welcomeText
 
-        // Mengambil teks deskripsi dari TextView (jika ada)
         val desc = binding.tvDesc.text.toString()
 
-        // ==========================================
-        // TOMBOL 1 (btnRumus/btnRuang) → Ke MainActivity (Luar)
-        // ==========================================
         binding.btnRumus.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             intent.putExtra("title", "Menu Bangun Ruang")
             intent.putExtra("desc", desc)
             startActivity(intent)
         }
-
-        // ==========================================
-        // TOMBOL 2 (btnCustom1) → Ke Custom1Activity (Pertemuan4)
-        // ==========================================
         binding.btnCustom1.setOnClickListener {
             val intent = Intent(this, Custom1Activity::class.java)
             intent.putExtra("title", "Halaman Custom 1")

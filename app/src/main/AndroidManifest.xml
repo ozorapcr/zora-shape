@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- TAMBAHKAN DI SINI -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -11,39 +16,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Zorashape">
-        <activity
-            android:name=".pertemuan4.Custom2Activity"
-            android:exported="false" />
-        <activity
-            android:name=".pertemuan4.Custom1Activity"
-            android:exported="false" />
-        <activity
-            android:name=".pertemuan4.FourthActivity"
-            android:exported="false" />
-        <activity
-            android:name=".pertemuan4.FourthActivity"
-            android:exported="false" />
-        <activity
-            android:name=".pertemuan3.WelcomeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".pertemuan3.LoginActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity
-            android:name=".BalokActivity"
+            android:name=".pertemuan5.WebViewActivity"
             android:exported="false" />
         <activity
-            android:name=".SegitigaActivity"
+            android:name=".pertemuan5.FifthActivity"
             android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true" />
+
+        <!-- dst... -->
+
     </application>
 
 </manifest>
