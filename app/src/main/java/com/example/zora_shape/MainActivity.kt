@@ -1,5 +1,6 @@
 package com.example.zora_shape
 
+import android.R
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -7,6 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.zora_shape.pertemuan3.pertemuan_5.WebViewActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,6 +20,12 @@ class MainActivity : AppCompatActivity() {
         // 2. Menghubungkan ke layout activity_main.xml
         setContentView(R.layout.activity_main)
 
+        // Tambahan Langkah 6
+        supportActionBar?.title = "Bina Desa"
+
+        // Tambahan Langkah 7 (Tombol Back di Toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         // 3. Menangani Window Insets (Padding Status Bar/Navbar)
         // Sekarang aman karena di XML sudah ada android:id="@+id/main"
         val mainView = findViewById<android.view.View>(R.id.main)
@@ -28,25 +36,27 @@ class MainActivity : AppCompatActivity() {
         }
 
         // 4. Inisialisasi Tombol berdasarkan ID di XML baru
+// Di dalam MainActivity.kt, cukup sisakan ini untuk navigasi:
         val btnSegitiga = findViewById<Button>(R.id.button)
         val btnBalok = findViewById<Button>(R.id.button2)
         val btnExit = findViewById<Button>(R.id.button3)
 
-        // Tombol Rumus Segitiga
         btnSegitiga.setOnClickListener {
-            val intent = Intent(this, SegitigaActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, SegitigaActivity::class.java))
         }
 
-        // Tombol Rumus Balok
         btnBalok.setOnClickListener {
-            val intent = Intent(this, BalokActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, BalokActivity::class.java))
         }
 
-        // Tombol Exit (Kembali ke WelcomeActivity)
         btnExit.setOnClickListener {
-            finish()
+            finish() // Ini akan kembali ke WelcomeActivity
         }
+    }
+
+    // Tambahan Langkah 7 (Saat tombol back toolbar ditekan)
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
     }
 }

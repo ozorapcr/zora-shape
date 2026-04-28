@@ -2,82 +2,62 @@ package com.example.zora_shape.pertemuan3
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-// IMPORT ACTIVITY TUJUAN
-import com.example.zora_shape.MainActivity // MainActivity yang di luar
-import com.example.zora_shape.pertemuan4.Custom1Activity // Custom1 di pertemuan4
-import com.example.zora_shape.pertemuan4.Custom2Activity // Custom2 di pertemuan4
-// IMPORT BINDING & UI
+import com.example.zora_shape.MainActivity
 import com.example.zora_shape.databinding.ActivityWelcomeBinding
+import com.example.zora_shape.pertemuan3.pertemuan_5.WebViewActivity
+import com.example.zora_shape.pertemuan4.Custom1Activity
+import com.example.zora_shape.pertemuan4.Custom2Activity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.android.material.snackbar.Snackbar
 
 class WelcomeActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityWelcomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // Inisialisasi View Binding
         binding = ActivityWelcomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Mengambil data username dari intent sebelumnya (Login)
-        val username = intent.getStringExtra("USERNAME")
-        val welcomeText = if (!username.isNullOrEmpty()) {
-            "Halo, $username!"
-        } else {
-            "Halo!"
-        }
-        binding.tvWelcomeUser.text = welcomeText
+        val username = intent.getStringExtra("USERNAME") ?: "User"
+        binding.tvWelcomeUser.text = "Halo, $username!"
 
-        val desc = binding.tvDesc.text.toString()
-
+        // 1. Tombol Rumus
         binding.btnRumus.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            intent.putExtra("title", "Menu Bangun Ruang")
-            intent.putExtra("desc", desc)
-            startActivity(intent)
+            startActivity(Intent(this, MainActivity::class.java))
         }
+
+        // 2. Tombol Custom 1
         binding.btnCustom1.setOnClickListener {
             val intent = Intent(this, Custom1Activity::class.java)
             intent.putExtra("title", "Halaman Custom 1")
-            intent.putExtra("desc", desc)
             startActivity(intent)
         }
 
-        // ==========================================
-        // TOMBOL 3 (btnCustom2) → Ke Custom2Activity (Pertemuan4)
-        // ==========================================
+        // 3. Tombol Custom 2 (Tetap Ada)
         binding.btnCustom2.setOnClickListener {
             val intent = Intent(this, Custom2Activity::class.java)
             intent.putExtra("title", "Halaman Custom 2")
-            intent.putExtra("desc", desc)
             startActivity(intent)
         }
 
-        // ==========================================
-        // TOMBOL 4 → LOGOUT
-        // ==========================================
+        // 4. Tombol Web Bina Desa
+        binding.btnWeb.setOnClickListener {
+            startActivity(Intent(this, WebViewActivity::class.java))
+        }
+
+        // 5. Tombol Logout
         binding.btnLogout.setOnClickListener {
             MaterialAlertDialogBuilder(this)
                 .setTitle("Logout")
-                .setMessage("Yakin ingin logout?")
-                .setPositiveButton("Ya") { dialog, _ ->
-                    dialog.dismiss()
-                    // Kembali ke LoginActivity (ada di package pertemuan3 yang sama)
+                .setMessage("Yakin ingin keluar?")
+                .setPositiveButton("Ya") { _, _ ->
+                    getSharedPreferences("user_pref", MODE_PRIVATE).edit().clear().apply()
                     val intent = Intent(this, LoginActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(intent)
-                    finish() // Tutup WelcomeActivity
-                    Log.e("Logout", "Berhasil logout")
+                    finish()
                 }
-                .setNegativeButton("Batal") { dialog, _ ->
-                    dialog.dismiss()
-                    Snackbar.make(binding.root, "Logout dibatalkan", Snackbar.LENGTH_SHORT).show()
-                    Log.e("Logout", "Dibatalkan")
-                }
+                .setNegativeButton("Batal", null)
                 .show()
         }
     }

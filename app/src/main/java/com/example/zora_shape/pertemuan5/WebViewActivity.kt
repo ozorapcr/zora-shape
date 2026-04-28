@@ -1,5 +1,6 @@
-package com.example.pertemuan_5
+package com.example.zora_shape.pertemuan3.pertemuan_5
 
+import android.R
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
@@ -9,6 +10,7 @@ import android.webkit.WebViewClient
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.example.zora_shape.R
 
 class WebViewActivity : AppCompatActivity() {
 
@@ -46,7 +48,7 @@ class WebViewActivity : AppCompatActivity() {
         }
 
         // Load URL
-        webView.loadUrl("https://merdeka.com")
+        webView.loadUrl("https://ola-perangkatlembaga-admin.alwaysdata.net/")
     }
 
     // Back button toolbar

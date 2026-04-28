@@ -12,6 +12,12 @@ class SegitigaActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_segitiga)
 
+        // Tambahan Judul Toolbar
+        supportActionBar?.title = "Rumus Segitiga"
+
+        // Tambahan Tombol Back
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         val etAlas = findViewById<EditText>(id.etAlas)
         val etTinggi = findViewById<EditText>(id.etTinggi)
         val btnHitung = findViewById<Button>(id.btnHitung)
@@ -30,5 +36,11 @@ class SegitigaActivity : AppCompatActivity() {
                 Toast.makeText(this, "Input tidak valid", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    // Tambahan fungsi tombol back toolbar
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
     }
 }

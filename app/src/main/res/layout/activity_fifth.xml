@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- APPBAR -->
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
         android:layout_width="match_parent"
@@ -20,7 +19,6 @@
             app:layout_scrollFlags="scroll|enterAlways"/>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- SCROLL CONTENT -->
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -32,15 +30,21 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- BUTTON -->
             <Button
                 android:id="@+id/btnWebView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Buka Website Berita"
-                android:layout_marginBottom="16dp"/>
+                android:layout_marginBottom="8dp"/>
 
-            <!-- HEADER -->
+            <Button
+                android:id="@+id/main_menu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kembali ke Menu Utama"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="@android:color/holo_blue_dark"/>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -49,7 +53,6 @@
                 android:textStyle="bold"
                 android:padding="8dp"/>
 
-            <!-- CARD PROFIL -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -60,16 +63,19 @@
                 android:layout_marginTop="12dp">
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="👤 Profil Pengguna"
                     android:textSize="18sp"
                     android:textStyle="bold"/>
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="Nama: Zoraa\nStatus: Mahasiswa\nKelas: Mobile Programming"
                     android:layout_marginTop="8dp"/>
             </LinearLayout>
 
-            <!-- CARD STATISTIK -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -80,16 +86,19 @@
                 android:layout_marginTop="12dp">
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="📊 Statistik"
                     android:textSize="18sp"
                     android:textStyle="bold"/>
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="• Total Login: 25x\n• Aktivitas: Tinggi\n• Progress: 80%"
                     android:layout_marginTop="8dp"/>
             </LinearLayout>
 
-            <!-- CARD INFO -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -100,16 +109,19 @@
                 android:layout_marginTop="12dp">
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="📢 Informasi"
                     android:textSize="18sp"
                     android:textStyle="bold"/>
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="Selamat datang di aplikasi! Klik tombol di atas untuk membuka berita terbaru."
                     android:layout_marginTop="8dp"/>
             </LinearLayout>
 
-            <!-- CARD FITUR -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -120,11 +132,15 @@
                 android:layout_marginTop="12dp">
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="⚙️ Fitur"
                     android:textSize="18sp"
                     android:textStyle="bold"/>
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="• Toolbar animasi\n• Menu interaktif\n• WebView berita\n• Scroll dinamis"
                     android:layout_marginTop="8dp"/>
             </LinearLayout>

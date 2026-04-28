@@ -11,6 +11,12 @@ class BalokActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_balok)
 
+        // Tambahan Judul Toolbar
+        supportActionBar?.title = "Rumus Balok"
+
+        // Tambahan Tombol Back
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         val etPanjang = findViewById<EditText>(R.id.etPanjang)
         val etLebar = findViewById<EditText>(R.id.etLebar)
         val etTinggi = findViewById<EditText>(R.id.etTinggi)
@@ -31,5 +37,11 @@ class BalokActivity : AppCompatActivity() {
                 Toast.makeText(this, "Input tidak valid", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    // Tambahan fungsi tombol back toolbar
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
     }
 }

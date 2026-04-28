@@ -6,4 +6,28 @@
     <color name="text_soft">#8A7F7B</color>
     <color name="white">#FFFFFF</color>
     <color name="red">#FF0000</color>
+
+    <color name="primary">#E7B8E1</color>
+    <color name="primary_light">#F9E6F6</color>
+    <color name="primary_dark">#D597CC</color>
+
+    <color name="secondary">#C8B6FF</color>
+    <color name="secondary_light">#F0EBFF</color>
+
+    <color name="accent">#FFAFCC</color>
+    <color name="accent_light">#FFE3F1</color>
+
+    <color name="white_soft">#FFF9FE</color>
+
+    <color name="dark">#5D576B</color>
+    <color name="dark_light">#8A8498</color>
+
+    <color name="gray">#A8A2B8</color>
+    <color name="gray_light">#F0E9F2</color>
+
+    <color name="success">#9CE0C2</color>
+    <color name="warning">#FFD6A5</color>
+    <color name="danger">#FFAFAF</color>
+    <color name="info">#A0C4FF</color>
+
 </resources>
