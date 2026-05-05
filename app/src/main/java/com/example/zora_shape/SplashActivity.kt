@@ -27,7 +27,6 @@ class SplashActivity : AppCompatActivity() {
 
             if (isLogin) {
                 // Jika sudah login, lempar ke WelcomeActivity (bukan MainActivity)
-                // agar user disambut dengan nama mereka.
                 val intent = Intent(this, BaseActivity::class.java)
                 intent.putExtra("USERNAME", username)
                 startActivity(intent)
