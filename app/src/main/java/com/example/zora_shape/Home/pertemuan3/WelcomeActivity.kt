@@ -1,5 +1,6 @@
 package com.example.zora_shape.Home.pertemuan3
 
+import android.content.Context.MODE_PRIVATE
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
