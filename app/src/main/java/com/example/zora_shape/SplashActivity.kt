@@ -6,8 +6,8 @@ import android.os.Handler
 import android.os.Looper
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.example.zora_shape.pertemuan3.LoginActivity
-import com.example.zora_shape.pertemuan3.WelcomeActivity // Tambahkan import ini
+import com.example.zora_shape.Home.pertemuan3.LoginActivity
+import com.example.zora_shape.Home.pertemuan3.WelcomeActivity // Tambahkan import ini
 
 class SplashActivity : AppCompatActivity() {
 
@@ -28,7 +28,7 @@ class SplashActivity : AppCompatActivity() {
             if (isLogin) {
                 // Jika sudah login, lempar ke WelcomeActivity (bukan MainActivity)
                 // agar user disambut dengan nama mereka.
-                val intent = Intent(this, WelcomeActivity::class.java)
+                val intent = Intent(this, BaseActivity::class.java)
                 intent.putExtra("USERNAME", username)
                 startActivity(intent)
             } else {

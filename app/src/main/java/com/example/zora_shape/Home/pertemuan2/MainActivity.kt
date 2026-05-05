@@ -1,14 +1,14 @@
-package com.example.zora_shape
+package com.example.zora_shape.Home.pertemuan2
 
-import android.R
+import com.example.zora_shape.R
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.zora_shape.pertemuan3.pertemuan_5.WebViewActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
         // 3. Menangani Window Insets (Padding Status Bar/Navbar)
         // Sekarang aman karena di XML sudah ada android:id="@+id/main"
-        val mainView = findViewById<android.view.View>(R.id.main)
+        val mainView = findViewById<View>(R.id.main)
         ViewCompat.setOnApplyWindowInsetsListener(mainView) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)

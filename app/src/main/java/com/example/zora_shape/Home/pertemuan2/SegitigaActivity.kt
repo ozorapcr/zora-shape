@@ -1,9 +1,10 @@
-package com.example.zora_shape
+package com.example.zora_shape.Home.pertemuan2
 
 import android.os.Bundle
 import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.example.zora_shape.R
 import com.example.zora_shape.R.id
 
 class SegitigaActivity : AppCompatActivity() {

@@ -1,9 +1,10 @@
-package com.example.zora_shape.pertemuan3
+package com.example.zora_shape.Home.pertemuan3
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.zora_shape.BaseActivity
 import com.example.zora_shape.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
@@ -43,7 +44,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun moveToWelcome(username: String?) {
-        val intent = Intent(this, WelcomeActivity::class.java)
+        val intent = Intent(this, BaseActivity::class.java)
         intent.putExtra("USERNAME", username)
         startActivity(intent)
         finish() // Penting: Agar tidak bisa back ke Login

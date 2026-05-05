@@ -1,14 +1,15 @@
-package com.example.zora_shape.pertemuan3
+package com.example.zora_shape.Home.pertemuan3
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.zora_shape.MainActivity
+import com.example.zora_shape.Home.pertemuan2.MainActivity
 import com.example.zora_shape.databinding.ActivityWelcomeBinding
-import com.example.zora_shape.pertemuan3.pertemuan_5.WebViewActivity
-import com.example.zora_shape.pertemuan4.Custom1Activity
-import com.example.zora_shape.pertemuan4.Custom2Activity
+import com.example.zora_shape.Home.pertemuan4.Custom1Activity
+import com.example.zora_shape.Home.pertemuan4.Custom2Activity
+import com.example.zora_shape.Home.pertemuan5.WebViewActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlin.jvm.java
 
 class WelcomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityWelcomeBinding

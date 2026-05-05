@@ -1,4 +1,4 @@
-package com.example.zora_shape.pertemuan_5
+package com.example.zora_shape.Home.pertemuan5
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,7 +9,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.example.zora_shape.R
-import com.example.zora_shape.pertemuan3.pertemuan_5.WebViewActivity
 import com.google.android.material.appbar.AppBarLayout
 import kotlin.jvm.java
 

@@ -1,6 +1,5 @@
-package com.example.zora_shape.pertemuan3.pertemuan_5
+package com.example.zora_shape.Home.pertemuan5
 
-import android.R
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
@@ -11,6 +10,7 @@ import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.example.zora_shape.R
+
 
 class WebViewActivity : AppCompatActivity() {
 
