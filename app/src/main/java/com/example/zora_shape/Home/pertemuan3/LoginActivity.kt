@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.zora_shape.BaseActivity
 import com.example.zora_shape.databinding.ActivityLoginBinding
+import kotlin.jvm.java
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -22,6 +23,10 @@ class LoginActivity : AppCompatActivity() {
 
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.tvRegister.setOnClickListener {
+            startActivity(Intent(this, RegisterActivity::class.java))
+        }
 
         binding.btnKirim.setOnClickListener {
             val username = binding.inputNoTujuan.text.toString().trim()
