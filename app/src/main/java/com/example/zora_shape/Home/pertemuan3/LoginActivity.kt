@@ -4,9 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.example.zora_shape.BaseActivity
+import com.example.zora_shape.R
 import com.example.zora_shape.databinding.ActivityLoginBinding
-import kotlin.jvm.java
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -23,6 +24,11 @@ class LoginActivity : AppCompatActivity() {
 
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // Use Glide to load the large logo to avoid "Canvas: trying to draw too large bitmap"
+        Glide.with(this)
+            .load(R.drawable.logorw)
+            .into(binding.imgLogo)
 
         binding.tvRegister.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))

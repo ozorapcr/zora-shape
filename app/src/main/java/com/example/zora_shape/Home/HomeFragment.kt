@@ -13,6 +13,7 @@ import com.example.zora_shape.Home.pertemuan4.Custom2Activity
 import com.example.zora_shape.databinding.FragmentHomeBinding
 import com.example.zora_shape.Home.pertemuan3.LoginActivity
 import com.example.zora_shape.Home.pertemuan5.WebViewActivity
+import com.example.zora_shape.Home.pertemuan5.DesaActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class HomeFragment : Fragment() {
@@ -49,6 +50,10 @@ class HomeFragment : Fragment() {
             val intent = Intent(requireContext(), Custom2Activity::class.java)
             intent.putExtra("title", "Halaman Custom 2")
             startActivity(intent)
+        }
+
+        binding.btnDesa.setOnClickListener {
+            startActivity(Intent(requireContext(), DesaActivity::class.java))
         }
 
         binding.btnWeb.setOnClickListener {

@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
+import com.example.zora_shape.R
 import com.example.zora_shape.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
@@ -31,6 +33,11 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // Use Glide to load the large image to avoid "Canvas: trying to draw too large bitmap"
+        Glide.with(this)
+            .load(R.mipmap.ic_launcher)
+            .into(binding.imgProfile)
 
         binding.btnGithub.setOnClickListener {
             openLink(githubUrl)

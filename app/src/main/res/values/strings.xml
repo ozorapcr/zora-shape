@@ -11,6 +11,14 @@
     <string name="forgot_password">Forgot Password?</string>
     <string name="welcome_user">Halo,</string>
     <string name="welcome_text">Tipsy membantu kamu menemukan ide dekorasi rumah yang indah dan nyaman untuk menghadirkan suasana hunian yang lebih hidup dan menenangkan.</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="menu_title">Menu</string>
+    <string name="subtitle_home">Selamat datang di aplikasi Bina Desa</string>
+    <string name="btn_rumus">Rumus</string>
+    <string name="btn_custom1">Custom 1</string>
+    <string name="btn_custom2">Custom 2</string>
+    <string name="btn_desa">Program Desa</string>
+    <string name="btn_web">Web Bina Desa</string>
+    <string name="btn_logout">Logout</string>
 </resources>

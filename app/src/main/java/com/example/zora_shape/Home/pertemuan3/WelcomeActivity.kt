@@ -4,13 +4,14 @@ import android.content.Context.MODE_PRIVATE
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.example.zora_shape.Home.pertemuan2.MainActivity
 import com.example.zora_shape.databinding.ActivityWelcomeBinding
 import com.example.zora_shape.Home.pertemuan4.Custom1Activity
 import com.example.zora_shape.Home.pertemuan4.Custom2Activity
 import com.example.zora_shape.Home.pertemuan5.WebViewActivity
+import com.example.zora_shape.R
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import kotlin.jvm.java
 
 class WelcomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityWelcomeBinding
@@ -19,6 +20,11 @@ class WelcomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityWelcomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // Use Glide to load the large logo to avoid "Canvas: trying to draw too large bitmap"
+        Glide.with(this)
+            .load(R.drawable.logorw)
+            .into(binding.imgLogoWelcome)
 
         val username = intent.getStringExtra("USERNAME") ?: "User"
         binding.tvWelcomeUser.text = "Halo, $username!"

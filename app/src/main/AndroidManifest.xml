@@ -52,6 +52,12 @@
         <activity
             android:name=".Home.pertemuan5.WebViewActivity"
             android:exported="false" />
+        <activity
+            android:name=".Home.pertemuan5.SettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Home.pertemuan5.DesaActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

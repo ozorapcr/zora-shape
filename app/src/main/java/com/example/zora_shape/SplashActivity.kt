@@ -6,18 +6,28 @@ import android.os.Handler
 import android.os.Looper
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.example.zora_shape.Home.pertemuan3.LoginActivity
-import com.example.zora_shape.Home.pertemuan3.WelcomeActivity // Tambahkan import ini
+import com.example.zora_shape.Home.pertemuan3.WelcomeActivity
+import com.example.zora_shape.databinding.ActivitySplashBinding
 
 class SplashActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivitySplashBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         enableEdgeToEdge()
-        setContentView(R.layout.activity_splash)
+        binding = ActivitySplashBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         supportActionBar?.hide()
+
+        // Use Glide to load the large logo to avoid "Canvas: trying to draw too large bitmap"
+        Glide.with(this)
+            .load(R.drawable.logorw)
+            .into(binding.imgLogoSplash)
 
         Handler(Looper.getMainLooper()).postDelayed({
 
@@ -26,7 +36,6 @@ class SplashActivity : AppCompatActivity() {
             val username = sp.getString("username", "")
 
             if (isLogin) {
-                // Jika sudah login, lempar ke WelcomeActivity (bukan MainActivity)
                 val intent = Intent(this, BaseActivity::class.java)
                 intent.putExtra("USERNAME", username)
                 startActivity(intent)
@@ -36,6 +45,6 @@ class SplashActivity : AppCompatActivity() {
 
             finish()
 
-        }, 3000) // 3 detik cukup untuk user melihat logo & progress bar
+        }, 3000)
     }
 }
