@@ -14,7 +14,9 @@ import com.example.zora_shape.databinding.FragmentHomeBinding
 import com.example.zora_shape.Home.pertemuan3.LoginActivity
 import com.example.zora_shape.Home.pertemuan5.WebViewActivity
 import com.example.zora_shape.Home.pertemuan5.DesaActivity
+import com.example.zora_shape.pertemuan_10.TenthActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlin.jvm.java
 
 class HomeFragment : Fragment() {
 
@@ -58,6 +60,10 @@ class HomeFragment : Fragment() {
 
         binding.btnWeb.setOnClickListener {
             startActivity(Intent(requireContext(), WebViewActivity::class.java))
+        }
+
+        binding.btnPertemuan10.setOnClickListener {
+            startActivity(Intent(requireContext(), TenthActivity::class.java))
         }
 
         binding.btnLogout.setOnClickListener {

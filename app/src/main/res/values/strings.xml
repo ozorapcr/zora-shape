@@ -19,6 +19,7 @@
     <string name="btn_custom1">Custom 1</string>
     <string name="btn_custom2">Custom 2</string>
     <string name="btn_desa">Program Desa</string>
-    <string name="btn_web">Web Bina Desa</string>
+    <string name="btn_web">Web Desa</string>
+    <string name="btn_pertemuan10">Marketplace</string>
     <string name="btn_logout">Logout</string>
 </resources>
