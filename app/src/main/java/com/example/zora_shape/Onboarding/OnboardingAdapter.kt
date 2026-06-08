@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.zora_shape.R
 import com.example.zora_shape.databinding.ItemOnboardingBinding
 
@@ -23,7 +24,7 @@ class OnboardingAdapter(private val activity: AppCompatActivity) :
     )
 
     private val images = listOf(
-        R.drawable.logorw, // Reuse existing logo
+        R.drawable.logorw,
         R.drawable.logorw,
         R.drawable.logorw
     )
@@ -43,7 +44,11 @@ class OnboardingAdapter(private val activity: AppCompatActivity) :
     override fun onBindViewHolder(holder: OnboardingViewHolder, position: Int) {
         holder.binding.tvTitle.text = titles[position]
         holder.binding.tvDesc.text = descriptions[position]
-        holder.binding.imgOnboarding.setImageResource(images[position])
+        
+        // Use Glide to prevent "Canvas: trying to draw too large bitmap" crash
+        Glide.with(holder.itemView.context)
+            .load(images[position])
+            .into(holder.binding.imgOnboarding)
     }
 
     override fun getItemCount(): Int = titles.size

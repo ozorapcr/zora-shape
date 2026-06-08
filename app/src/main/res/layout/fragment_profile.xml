@@ -54,7 +54,7 @@
         android:elevation="10dp"
         android:padding="4dp"
         android:scaleType="centerCrop"
-        tools:src="@drawable/zora_profile"
+        tools:src="@drawable/ic_person"
         app:layout_constraintTop_toBottomOf="@id/headerProfile"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
