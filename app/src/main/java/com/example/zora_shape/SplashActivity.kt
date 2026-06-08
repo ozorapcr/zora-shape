@@ -8,7 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.zora_shape.Home.pertemuan3.LoginActivity
-import com.example.zora_shape.Home.pertemuan3.WelcomeActivity
+import com.example.zora_shape.Onboarding.OnboardingActivity
 import com.example.zora_shape.databinding.ActivitySplashBinding
 
 class SplashActivity : AppCompatActivity() {
@@ -24,21 +24,25 @@ class SplashActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-        // Use Glide to load the large logo to avoid "Canvas: trying to draw too large bitmap"
         Glide.with(this)
             .load(R.drawable.logorw)
             .into(binding.imgLogoSplash)
 
         Handler(Looper.getMainLooper()).postDelayed({
 
-            val sp = getSharedPreferences("user_pref", MODE_PRIVATE)
-            val isLogin = sp.getBoolean("isLogin", false)
-            val username = sp.getString("username", "")
+            val spUser = getSharedPreferences("user_pref", MODE_PRIVATE)
+            val isLogin = spUser.getBoolean("isLogin", false)
+            val username = spUser.getString("username", "")
+
+            val spOnboarding = getSharedPreferences("onboarding_pref", MODE_PRIVATE)
+            val isOnboardingCompleted = spOnboarding.getBoolean("isCompleted", false)
 
             if (isLogin) {
                 val intent = Intent(this, BaseActivity::class.java)
                 intent.putExtra("USERNAME", username)
                 startActivity(intent)
+            } else if (!isOnboardingCompleted) {
+                startActivity(Intent(this, OnboardingActivity::class.java))
             } else {
                 startActivity(Intent(this, LoginActivity::class.java))
             }

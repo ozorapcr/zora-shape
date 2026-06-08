@@ -1,169 +1,208 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_main"
-    android:padding="20dp">
+    android:background="@color/bg_main">
 
-    <!-- HEADER -->
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/headerCard"
-        android:layout_width="0dp"
-        android:layout_height="150dp"
-        android:background="@color/primary"
-        android:elevation="8dp"
-        android:padding="18dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
 
-        <TextView
-            android:id="@+id/tvWelcomeUser"
+        <!-- HEADER -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/headerCard"
             android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:background="@color/primary"
+            android:elevation="8dp"
+            android:padding="18dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvWelcomeUser"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Halo, User!"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvSubtitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Selamat datang di dashboard desa digital"
+                android:textColor="@color/primary_light"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvWelcomeUser" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- MENU TITLE -->
+        <TextView
+            android:id="@+id/tvMenu"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/welcome_user"
-            android:textSize="24sp"
+            android:layout_marginTop="20dp"
+            android:text="Menu Utama"
+            android:textColor="@color/text_dark"
+            android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="@color/white"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@id/headerCard" />
 
-        <TextView
-            android:id="@+id/tvSubtitle"
+        <!-- ROW 1 -->
+        <Button
+            android:id="@+id/btnRumus"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/subtitle_home"
-            android:textSize="14sp"
-            android:textColor="@color/primary_light"
-            android:layout_marginTop="6dp"
-            app:layout_constraintTop_toBottomOf="@id/tvWelcomeUser"
+            android:layout_height="65dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="6dp"
+            android:backgroundTint="@color/primary"
+            android:text="Rumus"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:cornerRadius="14dp"
+            app:layout_constraintEnd_toStartOf="@id/btnCustom1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@id/tvMenu" />
+
+        <Button
+            android:id="@+id/btnCustom1"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/secondary"
+            android:text="Custom 1"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:cornerRadius="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnRumus"
+            app:layout_constraintTop_toBottomOf="@id/tvMenu" />
+
+        <!-- ROW 2 -->
+        <Button
+            android:id="@+id/btnCustom2"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="6dp"
+            android:backgroundTint="@color/accent"
+            android:text="Custom 2"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:cornerRadius="14dp"
+            app:layout_constraintEnd_toStartOf="@id/btnDesa"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnRumus" />
+
+        <Button
+            android:id="@+id/btnDesa"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/peach_primary"
+            android:text="Data Desa"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:cornerRadius="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnCustom2"
+            app:layout_constraintTop_toBottomOf="@id/btnCustom1" />
+
+        <!-- ROW 3 -->
+        <Button
+            android:id="@+id/btnWeb"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="6dp"
+            android:backgroundTint="@color/dark_light"
+            android:text="Web"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:cornerRadius="14dp"
+            app:layout_constraintEnd_toStartOf="@id/btnPertemuan10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnCustom2" />
+
+        <Button
+            android:id="@+id/btnPertemuan10"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/primary_dark"
+            android:text="Tenth"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:cornerRadius="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnWeb"
+            app:layout_constraintTop_toBottomOf="@id/btnDesa" />
+
+        <!-- NEWS TITLE -->
+        <TextView
+            android:id="@+id/tvNewsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Berita Terbaru"
+            android:textColor="@color/text_dark"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnWeb" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvNews"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:nestedScrollingEnabled="false"
+            app:layout_constraintTop_toBottomOf="@id/tvNewsTitle"
+            tools:listitem="@layout/item_news" />
+
+        <ProgressBar
+            android:id="@+id/progressBarNews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/rvNews"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/rvNews" />
+
+        <!-- LOGOUT -->
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/danger"
+            android:text="Logout"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:cornerRadius="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rvNews" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- MENU TITLE -->
-    <TextView
-        android:id="@+id/tvMenu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/menu_title"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:textColor="@color/text_dark"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@id/headerCard"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-    <!-- ROW 1 -->
-    <Button
-        android:id="@+id/btnRumus"
-        android:layout_width="0dp"
-        android:layout_height="65dp"
-        android:text="@string/btn_rumus"
-        android:textAllCaps="false"
-        android:backgroundTint="@color/primary"
-        android:textColor="@color/white"
-        app:cornerRadius="14dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="6dp"
-        app:layout_constraintTop_toBottomOf="@id/tvMenu"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/btnCustom1"/>
-
-    <Button
-        android:id="@+id/btnCustom1"
-        android:layout_width="0dp"
-        android:layout_height="65dp"
-        android:text="@string/btn_custom1"
-        android:textAllCaps="false"
-        android:backgroundTint="@color/secondary"
-        android:textColor="@color/white"
-        app:cornerRadius="14dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginStart="6dp"
-        app:layout_constraintTop_toBottomOf="@id/tvMenu"
-        app:layout_constraintStart_toEndOf="@id/btnRumus"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <!-- ROW 2 -->
-    <Button
-        android:id="@+id/btnCustom2"
-        android:layout_width="0dp"
-        android:layout_height="65dp"
-        android:text="@string/btn_custom2"
-        android:textAllCaps="false"
-        android:backgroundTint="@color/accent"
-        android:textColor="@color/white"
-        app:cornerRadius="14dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="6dp"
-        app:layout_constraintTop_toBottomOf="@id/btnRumus"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/btnDesa"/>
-
-    <Button
-        android:id="@+id/btnDesa"
-        android:layout_width="0dp"
-        android:layout_height="65dp"
-        android:text="@string/btn_desa"
-        android:textAllCaps="false"
-        android:backgroundTint="@color/peach_primary"
-        android:textColor="@color/white"
-        app:cornerRadius="14dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="6dp"
-        app:layout_constraintTop_toBottomOf="@id/btnCustom1"
-        app:layout_constraintStart_toEndOf="@id/btnCustom2"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <!-- ROW 3 -->
-    <Button
-        android:id="@+id/btnWeb"
-        android:layout_width="0dp"
-        android:layout_height="65dp"
-        android:text="@string/btn_web"
-        android:textAllCaps="false"
-        android:backgroundTint="@color/dark_light"
-        android:textColor="@color/white"
-        app:cornerRadius="14dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="6dp"
-        app:layout_constraintTop_toBottomOf="@id/btnCustom2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/btnPertemuan10"/>
-
-    <Button
-        android:id="@+id/btnPertemuan10"
-        android:layout_width="0dp"
-        android:layout_height="65dp"
-        android:text="@string/btn_pertemuan10"
-        android:textAllCaps="false"
-        android:backgroundTint="@color/primary_dark"
-        android:textColor="@color/white"
-        app:cornerRadius="14dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="6dp"
-        app:layout_constraintTop_toBottomOf="@id/btnDesa"
-        app:layout_constraintStart_toEndOf="@id/btnWeb"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <!-- LOGOUT -->
-    <Button
-        android:id="@+id/btnLogout"
-        android:layout_width="0dp"
-        android:layout_height="55dp"
-        android:text="@string/btn_logout"
-        android:textAllCaps="false"
-        android:backgroundTint="@color/danger"
-        android:textColor="@color/white"
-        app:cornerRadius="16dp"
-        android:layout_marginTop="18dp"
-        app:layout_constraintTop_toBottomOf="@id/btnWeb"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

@@ -6,22 +6,26 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.zora_shape.Home.pertemuan2.MainActivity
+import com.example.zora_shape.Home.pertemuan3.LoginActivity
 import com.example.zora_shape.Home.pertemuan4.Custom1Activity
 import com.example.zora_shape.Home.pertemuan4.Custom2Activity
-import com.example.zora_shape.databinding.FragmentHomeBinding
-import com.example.zora_shape.Home.pertemuan3.LoginActivity
-import com.example.zora_shape.Home.pertemuan5.WebViewActivity
 import com.example.zora_shape.Home.pertemuan5.DesaActivity
+import com.example.zora_shape.Home.pertemuan5.WebViewActivity
+import com.example.zora_shape.databinding.FragmentHomeBinding
 import com.example.zora_shape.pertemuan_10.TenthActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import kotlin.jvm.java
+import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+    private lateinit var newsAdapter: NewsAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,6 +41,9 @@ class HomeFragment : Fragment() {
 
         val username = requireActivity().intent.getStringExtra("USERNAME") ?: "User"
         binding.tvWelcomeUser.text = "Halo, $username!"
+
+        setupRecyclerView()
+        fetchNews()
 
         binding.btnRumus.setOnClickListener {
             startActivity(Intent(requireContext(), MainActivity::class.java))
@@ -84,6 +91,33 @@ class HomeFragment : Fragment() {
                 }
                 .setNegativeButton("Batal", null)
                 .show()
+        }
+    }
+
+    private fun setupRecyclerView() {
+        newsAdapter = NewsAdapter(listOf())
+        binding.rvNews.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = newsAdapter
+        }
+    }
+
+    private fun fetchNews() {
+        binding.progressBarNews.visibility = View.VISIBLE
+        viewLifecycleOwner.lifecycleScope.launch {
+            try {
+                val apiService = NewsApiService.create()
+                val response = apiService.getTopHeadlines()
+                if (response.articles.isNotEmpty()) {
+                    newsAdapter.setData(response.articles)
+                } else {
+                    Toast.makeText(requireContext(), "Tidak ada berita terbaru", Toast.LENGTH_SHORT).show()
+                }
+            } catch (e: Exception) {
+                Toast.makeText(requireContext(), "Gagal terhubung ke GNews: ${e.message}", Toast.LENGTH_SHORT).show()
+            } finally {
+                binding.progressBarNews.visibility = View.GONE
+            }
         }
     }
 
