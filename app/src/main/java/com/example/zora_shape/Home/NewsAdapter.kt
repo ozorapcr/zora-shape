@@ -4,10 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.zora_shape.R
 import com.example.zora_shape.databinding.ItemNewsBinding
 
-class NewsAdapter(private var newsList: List<NewsPost>) :
-    RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
+class NewsAdapter(
+    private var newsList: List<NewsPost>,
+    private val onBookmarkClick: (NewsPost) -> Unit
+) : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
 
     class NewsViewHolder(val binding: ItemNewsBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -27,7 +30,12 @@ class NewsAdapter(private var newsList: List<NewsPost>) :
         
         Glide.with(holder.itemView.context)
             .load(news.image)
+            .override(200, 200) // Optimization for memory
             .into(holder.binding.imgNews)
+
+        holder.itemView.setOnClickListener {
+            onBookmarkClick(news)
+        }
     }
 
     override fun getItemCount(): Int = newsList.size

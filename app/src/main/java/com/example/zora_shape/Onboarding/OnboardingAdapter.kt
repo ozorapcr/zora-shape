@@ -45,9 +45,10 @@ class OnboardingAdapter(private val activity: AppCompatActivity) :
         holder.binding.tvTitle.text = titles[position]
         holder.binding.tvDesc.text = descriptions[position]
         
-        // Use Glide to prevent "Canvas: trying to draw too large bitmap" crash
+        // Optimasi Glide: override ukuran untuk mencegah "too large bitmap"
         Glide.with(holder.itemView.context)
             .load(images[position])
+            .override(600, 600) // Memaksa ukuran bitmap jadi maksimal 600x600 px
             .into(holder.binding.imgOnboarding)
     }
 

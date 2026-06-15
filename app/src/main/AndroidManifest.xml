@@ -15,6 +15,19 @@
         android:theme="@style/Theme.Zorashape" >
 
         <activity
+            android:name=".Database.HistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Database.BookmarkActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".Home.pertemuan4.Custom1Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Home.pertemuan4.Custom2Activity"
+            android:exported="false" />
+        <activity
             android:name=".Onboarding.OnboardingActivity"
             android:exported="false" />
 

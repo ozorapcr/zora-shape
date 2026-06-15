@@ -1,10 +1,13 @@
 package com.example.zora_shape.Home.pertemuan2
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import com.example.zora_shape.Database.AppDatabase
+import com.example.zora_shape.Database.CalculationHistory
 import com.example.zora_shape.R
+import kotlinx.coroutines.launch
 
 class BalokActivity : AppCompatActivity() {
 
@@ -12,10 +15,7 @@ class BalokActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_balok)
 
-        // Tambahan Judul Toolbar
         supportActionBar?.title = "Rumus Balok"
-
-        // Tambahan Tombol Back
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val etPanjang = findViewById<EditText>(R.id.etPanjang)
@@ -24,23 +24,39 @@ class BalokActivity : AppCompatActivity() {
         val btnHitung = findViewById<Button>(R.id.btnHitung)
         val tvHasil = findViewById<TextView>(R.id.tvHasil)
 
+        val db = AppDatabase.getDatabase(this)
+
         btnHitung.setOnClickListener {
-            val p = etPanjang.text.toString().toDoubleOrNull()
-            val l = etLebar.text.toString().toDoubleOrNull()
-            val t = etTinggi.text.toString().toDoubleOrNull()
+            val pStr = etPanjang.text.toString()
+            val lStr = etLebar.text.toString()
+            val tStr = etTinggi.text.toString()
+            
+            val p = pStr.toDoubleOrNull()
+            val l = lStr.toDoubleOrNull()
+            val t = tStr.toDoubleOrNull()
 
             if (p != null && l != null && t != null) {
                 val hasil = p * l * t
-                tvHasil.text = "Volume = $hasil"
+                val hasilStr = "Volume = $hasil"
+                tvHasil.text = hasilStr
 
-                Log.d("BALOK", "Hasil: $hasil")
+                // Save to Room Database
+                lifecycleScope.launch {
+                    db.calculationDao().insert(
+                        CalculationHistory(
+                            title = "Volume Balok",
+                            input = "P: $pStr, L: $lStr, T: $tStr",
+                            result = hasilStr
+                        )
+                    )
+                    Toast.makeText(this@BalokActivity, "Riwayat disimpan", Toast.LENGTH_SHORT).show()
+                }
             } else {
                 Toast.makeText(this, "Input tidak valid", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
-    // Tambahan fungsi tombol back toolbar
     override fun onSupportNavigateUp(): Boolean {
         finish()
         return true

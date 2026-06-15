@@ -95,7 +95,12 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        newsAdapter = NewsAdapter(listOf())
+        // Tambahkan lambda { news -> ... } setelah listOf()
+        newsAdapter = NewsAdapter(listOf()) { news ->
+            // SEMENTARA: Menampilkan toast saat item berita diklik
+            Toast.makeText(requireContext(), "Kamu mengklik: ${news.title}", Toast.LENGTH_SHORT).show()
+        }
+
         binding.rvNews.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = newsAdapter
