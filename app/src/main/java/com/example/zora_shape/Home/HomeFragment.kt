@@ -1,12 +1,16 @@
 package com.example.zora_shape.Home
 
+import android.Manifest
 import android.content.Context.MODE_PRIVATE
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,6 +20,7 @@ import com.example.zora_shape.Home.pertemuan4.Custom1Activity
 import com.example.zora_shape.Home.pertemuan4.Custom2Activity
 import com.example.zora_shape.Home.pertemuan5.DesaActivity
 import com.example.zora_shape.Home.pertemuan5.WebViewActivity
+import com.example.zora_shape.Notification.PermissionHelper
 import com.example.zora_shape.databinding.FragmentHomeBinding
 import com.example.zora_shape.pertemuan_10.TenthActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -26,6 +31,14 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private lateinit var newsAdapter: NewsAdapter
+
+    private val requestPermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { isGranted: Boolean ->
+        if (isGranted) {
+            Toast.makeText(requireContext(), "Izin notifikasi diberikan", Toast.LENGTH_SHORT).show()
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,6 +51,8 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        checkNotificationPermission()
 
         val username = requireActivity().intent.getStringExtra("USERNAME") ?: "User"
         binding.tvWelcomeUser.text = "Halo, $username!"
@@ -94,10 +109,16 @@ class HomeFragment : Fragment() {
         }
     }
 
+    private fun checkNotificationPermission() {
+        if (PermissionHelper.isNotificationPermissionRequired()) {
+            if (!PermissionHelper.hasPermission(requireContext(), Manifest.permission.POST_NOTIFICATIONS)) {
+                PermissionHelper.requestPermission(requestPermissionLauncher, Manifest.permission.POST_NOTIFICATIONS)
+            }
+        }
+    }
+
     private fun setupRecyclerView() {
-        // Tambahkan lambda { news -> ... } setelah listOf()
         newsAdapter = NewsAdapter(listOf()) { news ->
-            // SEMENTARA: Menampilkan toast saat item berita diklik
             Toast.makeText(requireContext(), "Kamu mengklik: ${news.title}", Toast.LENGTH_SHORT).show()
         }
 
